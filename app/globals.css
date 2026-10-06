@@ -1,0 +1,356 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   ASIFWORKS — design tokens
+   ========================================================================== */
+
+@theme {
+  --color-ink: #08080a;
+  --color-ink-2: #0f0f12;
+  --color-ink-3: #17171c;
+  --color-ivory: #ece7dd;
+  --color-ivory-dim: #a9a49b;
+  --color-mute: #6f6c66;
+  --color-accent: #3d4dff;
+  --color-accent-soft: #8a96ff;
+  --color-violet: #7a5cff;
+
+  --font-sans: "Inter Tight Variable", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
+
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+:root {
+  --gutter: clamp(1rem, 3.2vw, 3rem);
+  --line: rgba(236, 231, 221, 0.12);
+  --line-strong: rgba(236, 231, 221, 0.22);
+  --nav-h: 4.5rem;
+  color-scheme: dark;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+@layer base {
+html {
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  overflow-x: clip;
+  min-height: 100svh;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-ivory);
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-accent-soft);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+img,
+svg,
+canvas {
+  display: block;
+}
+
+}
+
+/* Custom cursor hides the native one on fine pointers only. */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+
+/* ==========================================================================
+   Typography primitives
+   ========================================================================== */
+
+@layer components {
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ivory-dim);
+}
+
+.display {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+.serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+.body-copy {
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.0625rem);
+  line-height: 1.55;
+  color: var(--color-ivory-dim);
+  letter-spacing: -0.005em;
+}
+
+/* Masks used by every kinetic typography reveal */
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  /* room for descenders & italic overhang */
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  padding-right: 0.04em;
+  margin-right: -0.04em;
+}
+.mask > .mask-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Layout helpers
+   ========================================================================== */
+
+.gutter {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.hairline {
+  height: 1px;
+  background: var(--line);
+}
+
+}
+
+/* ==========================================================================
+   Atmosphere
+   ========================================================================== */
+
+.grain {
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain 0.9s steps(6) infinite;
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -4%); }
+  60% { transform: translate(-4%, -1%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(-1%, 1%); }
+}
+
+.perspective-grid {
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  bottom: -10%;
+  height: 70%;
+  transform: perspective(600px) rotateX(64deg);
+  transform-origin: 50% 100%;
+  background-image:
+    linear-gradient(to right, rgba(236, 231, 221, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(236, 231, 221, 0.07) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(to top, black 0%, transparent 85%);
+  -webkit-mask-image: linear-gradient(to top, black 0%, transparent 85%);
+  animation: grid-move 9s linear infinite;
+}
+
+@keyframes grid-move {
+  to { background-position: 0 80px; }
+}
+
+/* Thin speed lines for the motion section */
+.speed-line {
+  position: relative;
+  height: 1px;
+  overflow: hidden;
+}
+.speed-line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(236, 231, 221, 0.35) 0 var(--dash, 120px),
+    transparent var(--dash, 120px) calc(var(--dash, 120px) + var(--gap, 260px))
+  );
+  animation: speed var(--speed, 6s) linear infinite;
+}
+.speed-line.reverse::before {
+  animation-direction: reverse;
+}
+.speed-line.accent::before {
+  background: repeating-linear-gradient(
+    to right,
+    var(--color-accent) 0 var(--dash, 120px),
+    transparent var(--dash, 120px) calc(var(--dash, 120px) + var(--gap, 260px))
+  );
+}
+@keyframes speed {
+  to { transform: translateX(-50%); }
+}
+
+/* Outlined display text */
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(236, 231, 221, 0.55);
+}
+
+/* Text roll used by nav + links */
+.roll {
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+  vertical-align: top;
+}
+.roll > span {
+  display: block;
+  transition: transform 0.6s var(--ease-expo);
+}
+.roll > span:last-child {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.roll-host:hover .roll > span,
+.roll-host:focus-visible .roll > span {
+  transform: translateY(-100%);
+}
+
+/* Arrow nudge */
+.arrow-host .arrow {
+  display: inline-block;
+  transition: transform 0.6s var(--ease-expo);
+}
+.arrow-host:hover .arrow {
+  transform: translate(0.2em, -0.2em);
+}
+
+/* Skip link */
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  transform: translateY(-200%);
+  transition: transform 0.3s;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .grain,
+  .perspective-grid,
+  .speed-line::before {
+    animation: none !important;
+  }
+  .roll > span,
+  .arrow-host .arrow {
+    transition: none !important;
+  }
+}
+
+.bg-flow {
+  animation: flow linear infinite;
+}
+@keyframes flow {
+  to { stroke-dashoffset: -400; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bg-flow { animation: none; }
+}
+
+@keyframes scrollcue {
+  0% { transform: translateY(-100%); }
+  60%, 100% { transform: translateY(200%); }
+}
+
+/* Small ambient loops used inside project artwork */
+.art-spin { transform-box: fill-box; transform-origin: center; animation: art-spin 40s linear infinite; }
+.art-spin-rev { transform-box: fill-box; transform-origin: center; animation: art-spin 60s linear infinite reverse; }
+.art-dash { animation: flow 6s linear infinite; }
+@keyframes art-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .art-spin, .art-spin-rev, .art-dash { animation: none; }
+}
+
+.stage { transition: color 0.5s; }
+.stage .stage-dot { transform: scale(0.4); transition: transform 0.5s var(--ease-expo), background-color 0.5s; }
+.stage.is-active { color: var(--color-ivory); }
+.stage.is-active .stage-dot { transform: scale(1); background-color: var(--color-accent); }
+
+.roll.is-on > span { transform: translateY(-100%); }
+@keyframes cap-in {
+  from { opacity: 0; transform: translateY(12%) scale(0.96); }
+}
