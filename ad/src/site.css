@@ -1,0 +1,106 @@
+/* Reconstruction of asifworks.online (Home). Fonts and colours from the live Elementor kit. */
+.aw {
+  --aw-ink: #252424;
+  --aw-bronze: #975806;
+  --aw-gold: #927231;
+  --aw-gold2: #A7842B;
+  --aw-brown: #6F5624;
+  --aw-paper: #FFFBF6;
+  --aw-paper2: #FFF9F2;
+  --aw-sand: #F2E1C4;
+  --aw-peach: #FFE8CE;
+  --aw-mute: #7A6A58;
+  width: 1440px;
+  background: var(--aw-paper);
+  color: var(--aw-ink);
+  font-family: 'Roboto', system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: left;
+}
+.aw * { box-sizing: border-box; margin: 0; }
+.aw h1, .aw h2, .aw h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.15; color: var(--aw-ink); }
+.aw-nav { height: 88px; display: flex; align-items: center; justify-content: space-between; padding: 0 96px; background: #1d1c1c; color: #fff; }
+.aw-logo { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 28px; letter-spacing: .08em; color: #fff; }
+.aw-logo span { color: var(--aw-gold2); }
+.aw-nav nav { display: flex; gap: 40px; font-size: 16px; letter-spacing: .04em; }
+.aw-nav nav a { color: rgba(255,255,255,.75); }
+.aw-nav nav a.on { color: #fff; border-bottom: 2px solid var(--aw-gold2); padding-bottom: 4px; }
+.aw-btn { display: inline-block; background: var(--aw-bronze); color: #fff; font-weight: 500; font-size: 17px; letter-spacing: .03em; padding: 18px 34px; border-radius: 6px; }
+.aw-btn-sm { padding: 12px 22px; font-size: 15px; }
+.aw-btn-ghost { background: transparent; border: 1.5px solid var(--aw-gold2); color: #fff; }
+.aw-hero { background: radial-gradient(1200px 600px at 75% 40%, #3a2f22 0%, #252424 60%); color: #fff; display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; padding: 110px 96px 120px; min-height: 760px; }
+.aw-hero h1 { color: #fff; font-size: 66px; margin: 22px 0 26px; }
+.aw-eyebrow { color: var(--aw-gold2); font-size: 15px; letter-spacing: .22em; font-weight: 500; }
+.aw-lead { color: rgba(255,255,255,.8); font-size: 20px; max-width: 620px; }
+.aw-ctas { display: flex; gap: 18px; margin: 38px 0 34px; }
+.aw-strip { color: var(--aw-sand); font-size: 15px; letter-spacing: .12em; opacity: .85; }
+.aw-img { border-radius: 14px; background:
+  linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,0) 45%),
+  repeating-linear-gradient(135deg, rgba(167,132,43,.10) 0 2px, transparent 2px 22px),
+  linear-gradient(160deg, #F2E1C4, #c9a26a 55%, #6F5624); }
+.aw-img-hero { height: 520px; border-radius: 22px; box-shadow: 0 40px 90px rgba(0,0,0,.45); }
+.aw-sec { padding: 110px 96px; }
+.aw-sec > h2, .aw-cta h2 { font-size: 50px; text-align: center; }
+.aw-kicker { text-align: center; color: var(--aw-bronze); letter-spacing: .2em; text-transform: uppercase; font-size: 15px; font-weight: 500; margin-bottom: 12px; }
+.aw-sub { text-align: center; color: var(--aw-mute); font-size: 19px; margin-top: 14px; }
+.aw-div { width: 80px; height: 3px; background: var(--aw-gold2); margin: 28px auto 56px; }
+.aw-about { background: var(--aw-paper2); }
+.aw-about-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; align-items: center; color: #4A443D; }
+.aw-img-about { height: 380px; }
+.aw-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.aw-card { background: #fff; border: 1px solid var(--aw-sand); border-radius: 14px; padding: 36px 34px; }
+.aw-ico { width: 54px; height: 54px; border-radius: 50%; background: var(--aw-peach); border: 2px solid var(--aw-gold2); margin-bottom: 22px; }
+.aw-card h3 { font-size: 25px; margin-bottom: 12px; }
+.aw-card p { color: #4A443D; font-size: 17px; }
+.aw-why { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; background: #252424; }
+.aw-why h2 { color: #fff; font-size: 46px; }
+.aw-why .aw-sub { text-align: left; color: var(--aw-sand); }
+.aw-why ul { list-style: none; padding: 0; margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 28px; color: #fff; font-size: 17px; }
+.aw-why li::before, .aw-types li::before { content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--aw-gold2); margin-right: 12px; vertical-align: middle; }
+.aw-img-why { height: 460px; }
+.aw-pgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+.aw-proj { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid var(--aw-sand); padding-bottom: 30px; }
+.aw-proj .aw-img { height: 300px; border-radius: 0; }
+.aw-proj > :not(.aw-img) { margin-left: 32px; margin-right: 32px; }
+.aw-tag { color: var(--aw-bronze); font-size: 14px; letter-spacing: .08em; margin-top: 24px; }
+.aw-proj h3 { font-size: 28px; margin: 8px 0 10px; }
+.aw-proj p:not(.aw-tag) { color: #4A443D; font-size: 16px; margin-bottom: 20px; }
+.aw-c1 { background: linear-gradient(135deg, #dbe9ee, #8db3c2); }
+.aw-c2 { background: linear-gradient(135deg, #2c2c2c, #b5532b); }
+.aw-c3 { background: linear-gradient(135deg, #1f2533, #6b5cd6); }
+.aw-c4 { background: linear-gradient(135deg, #e9dcc3, #3f7f86); }
+.aw-types { background: var(--aw-paper2); text-align: center; }
+.aw-types ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 40px; }
+.aw-types li { background: #fff; border: 1px solid var(--aw-sand); border-radius: 40px; padding: 14px 26px; font-size: 17px; }
+.aw-cta { background: linear-gradient(135deg, #252424, #3a2f22); text-align: center; padding: 120px 96px; }
+.aw-cta h2 { color: #fff; }
+.aw-cta p { color: var(--aw-sand); font-size: 20px; margin: 18px 0 36px; }
+
+/* Mobile layout (390px) */
+.aw-m { width: 390px; font-size: 16px; }
+.aw-m .aw-nav { height: 64px; padding: 0 22px; }
+.aw-m .aw-logo { font-size: 21px; }
+.aw-burger { display: grid; gap: 5px; }
+.aw-burger i { display: block; width: 24px; height: 2px; background: #fff; }
+.aw-m .aw-hero { grid-template-columns: 1fr; padding: 46px 22px 54px; gap: 34px; min-height: 0; }
+.aw-m .aw-hero h1 { font-size: 38px; margin: 14px 0 16px; }
+.aw-m .aw-eyebrow { font-size: 11px; }
+.aw-m .aw-lead { font-size: 16px; }
+.aw-m .aw-ctas { flex-direction: column; gap: 12px; margin: 26px 0 22px; }
+.aw-m .aw-btn { text-align: center; padding: 15px 20px; font-size: 16px; }
+.aw-m .aw-strip { font-size: 11px; }
+.aw-m .aw-img-hero { height: 300px; }
+.aw-m .aw-sec { padding: 64px 22px; }
+.aw-m .aw-sec > h2, .aw-m .aw-cta h2 { font-size: 32px; }
+.aw-m .aw-about-grid, .aw-m .aw-cards, .aw-m .aw-pgrid, .aw-m .aw-why, .aw-m .aw-why ul { grid-template-columns: 1fr; }
+.aw-m .aw-img-about, .aw-m .aw-img-why { height: 240px; }
+.aw-m .aw-card { padding: 26px 24px; }
+.aw-m .aw-card h3 { font-size: 22px; }
+.aw-m .aw-why h2 { font-size: 32px; }
+.aw-m .aw-proj .aw-img { height: 200px; }
+.aw-m .aw-proj > :not(.aw-img) { margin-left: 22px; margin-right: 22px; }
+.aw-m .aw-cta { padding: 70px 22px; }
+
+/* Real screenshot mode */
+.aw-shot { display: block; width: 100%; height: auto; }
